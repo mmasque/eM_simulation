@@ -1,0 +1,24 @@
+%% constants 
+N_STEPS = 10000;    % arbitrary number of datapoints in the timeseries
+SLICE_L = N_STEPS/100; % arbitrary number of datapoints in each slice
+
+MULTILINE = false;
+F_NAME = 'bistable_TPM';
+L_MAX = 1;
+SIG_LEVEL = 0.005;
+
+ALPHABET = 0:1;
+ALPHABET_FNAME = 'alphabet.txt';
+p = 0.99;
+%% create TPM and dataset
+bistable_tpm = dtmc([1-p, p, 0,0,0,0;...
+                     p, 0,0,0,0, 1-p;...
+                     0, 
+
+merged = transpose(simulate(bistable_tpm, N_STEPS));
+%% get state transitions
+%% get eM from merged_dataset
+
+convert_dataset_to_textfile(ALPHABET, ALPHABET_FNAME);
+
+run_CSSR(merged, ALPHABET_FNAME, L_MAX, SIG_LEVEL, F_NAME, MULTILINE)

@@ -42,13 +42,9 @@ with_txt = strcat(dataset_FName, ".txt");
 change_name = strcat("mv ", with_txt," ", dataset_FName);
 system(change_name)
 
-if multiline
     call_CSSR = strcat("./CSSR ", alphabet_FName, " ", dataset_FName, " ",...
     num2str(L_Max), " -m -s ", num2str(s));
-else
-    call_CSSR = strcat("./CSSR ", alphabet_FName, " ", dataset_FName, " ",...
-    num2str(L_Max), "-s ", num2str(s));
-end
+
 system(call_CSSR);
 %system(num2str(s))
 info_fname = strcat(dataset_FName, "_info");

@@ -37,12 +37,12 @@
 %}
 %...*...*...*...*...
 %% constants 
-N_STEPS = 10000;    % arbitrary number of datapoints in the timeseries
+N_STEPS = 100000;    % arbitrary number of datapoints in the timeseries
 SLICE_L = N_STEPS/100; % arbitrary number of datapoints in each slice
 
-MULTILINE = true;
-F_NAME = 'merged_dataset_multiline_0v1';
-L_MAX = 1;
+MULTILINE = false;
+F_NAME = 'merged_dataset_multiline_more_steps';
+L_MAX = 3;
 SIG_LEVEL = 0.005;
 
 ALPHABET = 0:1;
@@ -52,7 +52,8 @@ ALPHABET_FNAME = 'alphabet.txt';
 random_tpm = dtmc([0.5, 0.5;...
               0.5, 5], 'StateNames', ["0" "1"]);
 alternating_tpm = dtmc([0.0, 1.0;...
-                   1.0, 0.0], 'StateNames', ["0" "1"]);               
+                   1.0, 0.0], 'StateNames', ["0" "1"]);   
+
 %% create time series datasets
 
 random_timeseries = transpose(simulate(random_tpm, N_STEPS));
@@ -66,7 +67,6 @@ alternating_timeseries = alternating_timeseries - 1;
 
 merged = merge_altern_slices(random_timeseries, alternating_timeseries,...
                SLICE_L, MULTILINE);
-
 %% get eM from merged_dataset
 
 convert_dataset_to_textfile(ALPHABET, ALPHABET_FNAME);
