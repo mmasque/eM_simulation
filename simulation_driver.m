@@ -49,8 +49,8 @@ ALPHABET = 0:1;
 ALPHABET_FNAME = 'alphabet.txt';
 %% instantiate binary state TPMs.
 
-random_tpm = dtmc([0.99, 0.01;...
-              0.01, 0.99], 'StateNames', ["0" "1"]);
+random_tpm = dtmc([0.5, 0.5;...
+              0.5, 5], 'StateNames', ["0" "1"]);
 alternating_tpm = dtmc([0.0, 1.0;...
                    1.0, 0.0], 'StateNames', ["0" "1"]);               
 %% create time series datasets
