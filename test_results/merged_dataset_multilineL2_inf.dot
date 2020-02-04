@@ -1,0 +1,15 @@
+digraph "merged_dataset_multilineL2" {
+size = "6,8.5";
+ratio = "fill";
+node [shape = circle];
+node [fontsize = 24];
+edge [fontsize = 24];
+0 -> 2 [label = "0: 0.8373   "];
+0 -> 3 [label = "1: 0.1627   "];
+1 -> 1 [label = "0: 0.4875   "];
+1 -> 0 [label = "1: 0.5125   "];
+2 -> 1 [label = "0: 0.1663   "];
+2 -> 0 [label = "1: 0.8337   "];
+3 -> 2 [label = "0: 0.4763   "];
+3 -> 3 [label = "1: 0.5237   "];
+}
