@@ -1,0 +1,13 @@
+Alphabet File: alphabet.txt
+Data File: merged_dataset_multilineL2
+History Length: 2
+Significance Level: 0.005
+Multiline Mode: true
+Chi-squared test used: false
+Alphabet Size: 2
+Relative Entropy: 0
+Relative Entropy Rate: 5.4849e-09
+Statistical Complexity: 1.81145
+Entropy Rate: 0.733543
+Variation: 0.995124
+Number of Inferred States: 4

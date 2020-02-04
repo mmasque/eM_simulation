@@ -1,0 +1,9 @@
+digraph "merged_dataset_multiline_0v1L1" {
+size = "6,8.5";
+ratio = "fill";
+node [shape = circle];
+node [fontsize = 24];
+edge [fontsize = 24];
+0 -> 0 [label = "0: 0.454    "];
+0 -> 0 [label = "1: 0.546    "];
+}
