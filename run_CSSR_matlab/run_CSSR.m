@@ -33,7 +33,11 @@ function [complexity] = run_CSSR(dataset, alphabet_FName, L_Max, s, output_FName
         for file outputs, see README
 %}
 dataset_FName = strcat(output_FName, "L", num2str(L_Max));
-convert_dataset_to_textfile(dataset, dataset_FName);
+try
+    convert_dataset_to_textfile(dataset, dataset_FName);
+catch
+    better_dataset_to_textfile(dataset, dataset_FName);
+end
 %alphabet_FName = "binary01-alphabet.txt";
 
 
@@ -41,10 +45,14 @@ convert_dataset_to_textfile(dataset, dataset_FName);
 with_txt = strcat(dataset_FName, ".txt");
 change_name = strcat("mv ", with_txt," ", dataset_FName);
 system(change_name)
-
+if multiline
     call_CSSR = strcat("./CSSR ", alphabet_FName, " ", dataset_FName, " ",...
     num2str(L_Max), " -m -s ", num2str(s));
-
+else
+    call_CSSR = strcat("./CSSR ", alphabet_FName, " ", dataset_FName, " ",...
+    num2str(L_Max), " -s ", num2str(s));
+    disp('hello');
+end
 system(call_CSSR);
 %system(num2str(s))
 info_fname = strcat(dataset_FName, "_info");
